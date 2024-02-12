@@ -21,4 +21,8 @@ export class TemporalDbService {
   isCityVisited(id: number) {
     return !!this.data.find((city) => city.id === id);
   }
+
+  getCities() {
+    return this.data;
+  }
 }
