@@ -1,1 +1,13 @@
-<p>profile works!</p>
+<h1 class="text-3xl font-bold ">
+  Mis Ciudades
+</h1>
+<div class="flex justify-end">
+  <a routerLink="/">Buscador</a>
+</div>
+<app-table
+  [dataSource]="displayedData"
+  [total]="dataSource.length"
+  [pageSize]="pageSize"
+  (remove)="handleRemoveCity($event)"
+  (paginate)="onPaginate($event)"
+  ></app-table>
