@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Result } from '../@types/types';
+import { ParamsOptions, Result } from '../@types/types';
 
 @Injectable({
   providedIn: 'root'
@@ -14,22 +14,23 @@ export class GeodbService {
     private http: HttpClient
   ) { }
 
-  getCities() {
-    const options = this.getOptions();
+  getCities(params: ParamsOptions) {
+    const options = this.getOptions(params);
     return this.http.get<Result>(this.API_URL, options);
   }
 
-  getOptions() {
+  getOptions(params: ParamsOptions) {
     return {
       headers: this.getHeaders(),
-      params: this.getParams()
+      params: this.getParams(params)
     };
   }
 
-  getParams() {
+  getParams({ offset, limit }: ParamsOptions) {
     return new HttpParams()
       .set('countryIds', 'CL')
-      .set('limit', '10');
+      .set('limit', limit)
+      .set('offset', offset);
   }
 
   getHeaders() {

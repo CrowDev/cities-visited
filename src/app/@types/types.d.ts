@@ -36,3 +36,8 @@ export interface CityTable {
   region:  string;
   visited: boolean;
 }
+
+export interface ParamsOptions {
+  offset: number;
+  limit: number;
+}
