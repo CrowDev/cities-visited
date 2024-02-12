@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -12,11 +13,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     HttpClientModule,
     MatPaginatorModule,
+    MatIconModule,
   ],
   exports: [
     MatTableModule,
     HttpClientModule,
     MatPaginatorModule,
+    MatIconModule,
   ]
 })
 export class UtilModule { }
