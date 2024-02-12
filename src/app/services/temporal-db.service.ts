@@ -25,4 +25,8 @@ export class TemporalDbService {
   getCities() {
     return this.data;
   }
+
+  getCity(id: number) {
+    return this.data.find((city) => city.id === id);
+  }
 }

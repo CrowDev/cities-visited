@@ -32,6 +32,11 @@
       <ng-container *ngIf="element | visited">
         <mat-icon class="cursor-pointer" (click)="handleRemoveCity(element)">delete</mat-icon>
       </ng-container>
+      <ng-container>
+        <a [routerLink]="['/city-form']" [queryParams]="{id: element.id}">
+          <mat-icon class="cursor-pointer">edit</mat-icon>
+        </a>
+      </ng-container>
     </td>
   </ng-container>
 
