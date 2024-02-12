@@ -10,7 +10,7 @@ import { TemporalDbService } from 'src/app/services/temporal-db.service';
   styleUrls: ['./searcher.component.css']
 })
 export class SearcherComponent {
-  displayedColumns: string[] = ['id', 'name', 'region', 'visited', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'region', 'actions'];
   dataSource: CityTable[] = [];
   previousLink = '';
   nextLink = '';

@@ -4,7 +4,15 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <td mat-cell *matCellDef="let element" class="py-1"> 
+      <div class="border-l-4 px-3" [ngClass]="
+        {
+          'border-red-500': !(element | visited),
+          'border-green-600': element | visited
+        }">
+        {{element.id}} 
+      </div>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
@@ -15,11 +23,6 @@
   <ng-container matColumnDef="region">
     <th mat-header-cell *matHeaderCellDef> Región </th>
     <td mat-cell *matCellDef="let element"> {{element.region}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="visited">
-    <th mat-header-cell *matHeaderCellDef> Visitado </th>
-    <td mat-cell *matCellDef="let element"> {{element | visited}} </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
