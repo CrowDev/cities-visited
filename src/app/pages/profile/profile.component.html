@@ -9,6 +9,7 @@
   [dataSource]="displayedData"
   [total]="dataSource.length"
   [pageSize]="pageSize"
+  [editable]="true"
   (remove)="handleRemoveCity($event)"
   (paginate)="onPaginate($event)"
   ></app-table>

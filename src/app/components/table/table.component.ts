@@ -11,6 +11,7 @@ export class TableComponent {
   @Input() dataSource: any[] = [];
   @Input() total = 0;
   @Input() pageSize = 0;
+  @Input() editable = false;
   @Output() add = new EventEmitter<CityTable>();
   @Output() remove = new EventEmitter<CityTable>();
   @Output() paginate = new EventEmitter<PageEvent>();
