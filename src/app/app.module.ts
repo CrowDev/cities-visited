@@ -9,6 +9,7 @@ import { UtilModule } from './util/util.module';
 import { VisitedPipe } from './pipes/visited.pipe';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TableComponent } from './components/table/table.component';
+import { CityFormComponent } from './pages/city-form/city-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TableComponent } from './components/table/table.component';
     SearcherComponent,
     VisitedPipe,
     ProfileComponent,
-    TableComponent
+    TableComponent,
+    CityFormComponent
   ],
   imports: [
     BrowserModule,

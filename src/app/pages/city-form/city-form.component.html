@@ -1,0 +1,20 @@
+<h1 class="text-3xl font-bold ">
+  Formulario de Ciudad
+</h1>
+<div class="flex justify-end">
+  <a routerLink="/">Buscador</a>
+</div>
+<section>
+  <form [formGroup]="cityForm" class="grid grid-cols-2 gap-5 py-3">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" placeholder="Ex. Santiago">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Región</mat-label>
+      <input matInput formControlName="region" placeholder="Ex. Metropolitana">
+    </mat-form-field>
+
+    <button class="rounded-lg bg-sky-500 py-3 px-2 hover:bg-sky-700 transition-colors" (click)="onSubmit()">Agregar</button>
+  </form>
+</section>

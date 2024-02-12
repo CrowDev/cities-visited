@@ -34,7 +34,6 @@ export interface CityTable {
   id:      number;
   name:    string;
   region:  string;
-  visited: boolean;
 }
 
 export interface ParamsOptions {
