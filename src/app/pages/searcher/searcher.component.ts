@@ -15,6 +15,9 @@ export class SearcherComponent {
   total = 0;
   pageSize = 10;
   offset = 0;
+  loading = false;
+  error = false;
+  
 
   constructor(private geodbService: GeodbService, private db: TemporalDbService) {}
 
@@ -23,15 +26,20 @@ export class SearcherComponent {
   }
 
   fetchCities() {
+    this.loading = true;
+    this.error = false;
     const params = { offset: this.offset, limit: this.pageSize };
     this.geodbService.getCities(params).subscribe((result: Result) => {
-      console.log(result);
       const { data } = result;
       this.dataSource = data.map((city: CityData) => {
         const { id, name, region } = city;
         return { id, name, region, visited: false };
       });
       this.total = result.metadata.totalCount;
+      this.loading = false;
+    }, (error) => {
+      this.error = true;
+      this.loading = false;
     });
   }
 
