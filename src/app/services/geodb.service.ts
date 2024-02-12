@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Result } from '../@types/types';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class GeodbService {
 
   getCities() {
     const options = this.getOptions();
-    return this.http.get(this.API_URL, options);
+    return this.http.get<Result>(this.API_URL, options);
   }
 
   getOptions() {

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { CityData, CityTable, Result } from 'src/app/@types/types';
 import { GeodbService } from 'src/app/services/geodb.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { GeodbService } from 'src/app/services/geodb.service';
 })
 export class SearcherComponent {
   displayedColumns: string[] = ['id', 'name', 'region', 'visited'];
-  dataSource = [];
+  dataSource: CityTable[] = [];
   total = 0;
 
   constructor(private geodbService: GeodbService) {}
@@ -18,10 +20,10 @@ export class SearcherComponent {
   }
 
   fetchCities() {
-    this.geodbService.getCities().subscribe((cities: any) => {
+    this.geodbService.getCities().subscribe((cities: Result) => {
       console.log(cities);
       const { data } = cities;
-      this.dataSource = data.map((city: any) => {
+      this.dataSource = data.map((city: CityData) => {
         const { id, name, region } = city;
         return { id, name, region, visited: false };
       });
@@ -29,7 +31,7 @@ export class SearcherComponent {
     });
   }
 
-  onPaginate(event: any) {
+  onPaginate(event: PageEvent) {
     console.log(event);
     //const { pageIndex, pageSize } = event;
     // this.geodbService.getCities(pageIndex, pageSize).subscribe((cities: any) => {
