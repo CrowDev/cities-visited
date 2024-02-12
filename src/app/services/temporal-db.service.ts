@@ -6,12 +6,19 @@ import { CityTable } from '../@types/types';
 })
 export class TemporalDbService {
 
-  data: CityTable[] = [];
+  private data: CityTable[] = [];
 
   constructor() { }
 
   insertCity(city: CityTable) {
     this.data.push(city);
-    console.log(this.data)
+  }
+
+  removeCity(id: number) {
+    this.data = this.data.filter((city) => city.id !== id);
+  }
+
+  isCityVisited(id: number) {
+    return !!this.data.find((city) => city.id === id);
   }
 }

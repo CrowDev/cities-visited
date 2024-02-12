@@ -49,4 +49,8 @@ export class SearcherComponent {
   handleAddCity(city: CityTable) {
     this.db.insertCity(city);
   }
+
+  handleRemoveCity(city: CityTable) {
+    this.db.removeCity(city.id);
+  }
 }
