@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { CityData, CityTable, Result } from 'src/app/@types/types';
 import { GeodbService } from 'src/app/services/geodb.service';
+import { TemporalDbService } from 'src/app/services/temporal-db.service';
 
 @Component({
   selector: 'app-searcher',
@@ -9,7 +10,7 @@ import { GeodbService } from 'src/app/services/geodb.service';
   styleUrls: ['./searcher.component.css']
 })
 export class SearcherComponent {
-  displayedColumns: string[] = ['id', 'name', 'region', 'visited'];
+  displayedColumns: string[] = ['id', 'name', 'region', 'visited', 'actions'];
   dataSource: CityTable[] = [];
   previousLink = '';
   nextLink = '';
@@ -17,7 +18,7 @@ export class SearcherComponent {
   pageSize = 10;
   offset = 0;
 
-  constructor(private geodbService: GeodbService) {}
+  constructor(private geodbService: GeodbService, private db: TemporalDbService) {}
 
   ngOnInit() {
     this.fetchCities();
@@ -43,5 +44,9 @@ export class SearcherComponent {
     this.offset = pageIndex * pageSize;
     this.pageSize = pageSize;
     this.fetchCities();
+  }
+
+  handleAddCity(city: CityTable) {
+    this.db.insertCity(city);
   }
 }
