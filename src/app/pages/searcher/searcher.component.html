@@ -1,9 +1,9 @@
 <h1 class="text-3xl font-bold ">
   Buscador
 </h1>
-<div class="flex justify-between">
-  <a routerLink="/city-form">Agregar Ciudad</a>
-  <a routerLink="/my-cities">Mis Ciudades</a>
+<div class="flex justify-between my-2">
+  <a routerLink="/city-form" class="w-fit px-3 py-2 rounded-lg bg-sky-500 hover:bg-sky-700 transition-colors">Agregar Ciudad</a>
+  <a routerLink="/my-cities" class="w-fit px-3 py-2 rounded-lg bg-sky-500 hover:bg-sky-700 transition-colors">Mis Ciudades</a>
 </div>
 <app-table
   [dataSource]="dataSource"
