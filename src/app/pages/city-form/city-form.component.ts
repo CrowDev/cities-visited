@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TemporalDbService } from 'src/app/services/temporal-db.service';
 
@@ -28,8 +28,8 @@ export class CityFormComponent {
     this.cityId = this.route.snapshot.queryParamMap.get('id');
     const city = this.db.getCity(Number(this.cityId));
     this.cityForm = this.fb.group({
-      name: [city ? city.name : ''],
-      region: [city ? city.region : '']
+      name: [city ? city.name : '', Validators.required],
+      region: [city ? city.region : '', Validators.required]
     });
   }
 
@@ -54,6 +54,10 @@ export class CityFormComponent {
     this.db.removeCity(city.id);
     this.db.insertCity(city);
     this.router.navigate(['/my-cities']);
+  }
+
+  get title() {
+    return this.cityId ? 'Editar Ciudad' : 'Crear Ciudad';
   }
 
 }

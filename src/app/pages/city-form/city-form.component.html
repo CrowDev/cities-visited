@@ -1,8 +1,8 @@
 <h1 class="text-3xl font-bold ">
-  Formulario de Ciudad
+  {{ title }}
 </h1>
 <div class="flex justify-end">
-  <a routerLink="/">Buscador</a>
+  <a routerLink="/" class="w-fit px-3 py-2 rounded-lg bg-sky-500 hover:bg-sky-700 transition-colors">Buscador</a>
 </div>
 <section>
   <form [formGroup]="cityForm" class="grid grid-cols-2 gap-5 py-3">
@@ -15,6 +15,10 @@
       <input matInput formControlName="region" placeholder="Ex. Metropolitana">
     </mat-form-field>
 
-    <button class="rounded-lg bg-sky-500 py-3 px-2 hover:bg-sky-700 transition-colors" (click)="onSubmit()">Agregar</button>
+    <button
+      class="rounded-lg bg-sky-500 py-3 px-2 hover:bg-sky-700 transition-colors disabled:bg-gray-500 disabled:cursor-not-allowed"
+      (click)="onSubmit()"
+      [disabled]="cityForm.invalid"
+      >Agregar</button>
   </form>
 </section>
