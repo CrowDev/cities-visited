@@ -3,7 +3,7 @@
 ## Overview
 
 Tour Check is a small project in which you can mark cities that you've already visited.
-The free API used is the following: ![GeoDB Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities)
+The free API used is the following: [GeoDB Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities)
 
 ## Features
 
