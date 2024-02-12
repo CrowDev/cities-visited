@@ -7,12 +7,14 @@ import { SearcherComponent } from './pages/searcher/searcher.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UtilModule } from './util/util.module';
 import { VisitedPipe } from './pipes/visited.pipe';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearcherComponent,
-    VisitedPipe
+    VisitedPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

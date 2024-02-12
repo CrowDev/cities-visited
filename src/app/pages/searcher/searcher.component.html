@@ -1,6 +1,9 @@
 <h1 class="text-3xl font-bold ">
   Searcher
 </h1>
+<div class="flex justify-end">
+  <a routerLink="/my-cities">Mis Ciudades</a>
+</div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
