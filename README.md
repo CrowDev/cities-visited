@@ -1,27 +1,55 @@
-# TourCheck
+# Tour Check
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+## Overview
 
-## Development server
+Tour Check is a small project in which you can mark cities that you've already visited.
+The free API used is the following: ![GeoDB Cities API](https://rapidapi.com/wirefreethought/api/)geodb-cities
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Fetching data through an API from RapidAPI
+- Reactive Form to create and edit cities
+- Customizable UI with TailwindCSS.
+- Unit tests for application logic.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Structure
 
-## Build
+- `/src`: Main source code directory.
+  - `/app`: Application components and logic.
+    - `/@types`: Types for the application
+    -  `/components`: Components for the UI
+    -  `/pages`: Components for routing
+    -  `/services`: Fetching and temporal DB for the application
+    -  `/util`: Module to imports and exports necessary modules
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+1. Clone the repository.
+2. Run `npm install`.
+3. You need a RapidAPI-Key in order to enable the API and set the value in the env file.
+3. Start the application with `npm start`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Running end-to-end tests
+- Visit `http://localhost:4200` in your browser.
+- Add cities that you visited.
+- You can check your cities in "Mis Ciudades".
+- You can add a custom city that may not appear in the fetching.
+- Also you can edit cities.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Design Choices
 
-## Further help
+Material Angular is used to build a fast UI and TailwindCSS was chosen for its flexibility in creating a highly customizable UI.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Troubleshooting
+
+If you face issues running the project in WSL2, try changing the port using `ng serve --port=4000`.
+
+## Future Features
+
+- Planned an input for fetching specific cities.
+- Planned a section with more detail for cities.
+
+## Contact
+
+For questions or suggestions, reach out to [Hardy Aguilar](https://www.linkedin.com/in/hardyaguilar/).
