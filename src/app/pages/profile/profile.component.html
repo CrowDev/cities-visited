@@ -5,11 +5,16 @@
   <a routerLink="/city-form" class="w-fit px-3 py-2 rounded-lg bg-sky-500 hover:bg-sky-700 transition-colors">Agregar Ciudad</a>
   <a routerLink="/" class="w-fit px-3 py-2 rounded-lg bg-sky-500 hover:bg-sky-700 transition-colors">Buscador</a>
 </div>
-<app-table
-  [dataSource]="displayedData"
-  [total]="dataSource.length"
-  [pageSize]="pageSize"
-  [editable]="true"
-  (remove)="handleRemoveCity($event)"
-  (paginate)="onPaginate($event)"
-  ></app-table>
+<ng-container *ngIf="dataSource.length > 0">
+  <app-table
+    [dataSource]="displayedData"
+    [total]="dataSource.length"
+    [pageSize]="pageSize"
+    [editable]="true"
+    (remove)="handleRemoveCity($event)"
+    (paginate)="onPaginate($event)"
+    ></app-table>
+</ng-container>
+<ng-container *ngIf="dataSource.length === 0">
+  <p class="text-center text-lg my-5">No tienes ciudades agregadas</p>
+</ng-container>
